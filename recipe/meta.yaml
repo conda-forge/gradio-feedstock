@@ -33,7 +33,7 @@ requirements:
     - fsspec
     - httpx
     - jinja2
-    - markdown-it-py
+    - markdown-it-py >=2.0.0
     - linkify-it-py
     - mdit-py-plugins
     - markupsafe
