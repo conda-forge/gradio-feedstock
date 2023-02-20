@@ -35,7 +35,7 @@ requirements:
     - jinja2
     - markdown-it-py >=2.0.0
     - linkify-it-py
-    - mdit-py-plugins
+    - mdit-py-plugins <=0.3.3
     - markupsafe
     - matplotlib-base
     - numpy
