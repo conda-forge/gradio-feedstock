@@ -1,11 +1,11 @@
-About gradio
-============
+About gradio-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gradio-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/gradio/
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gradio-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python library for easily interacting with trained machine learning models
 
