@@ -10,7 +10,7 @@ source:
   sha256: a06f7b1b07a1c815a3597cc3ab27e3fb1da601f33a39085829d0378f446ff15b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - gradio=gradio.reload:run_in_reload_mode
@@ -42,7 +42,6 @@ requirements:
     - orjson
     - pandas
     - pillow
-    - pycryptodome
     - pydantic
     - pydub
     - python-multipart
