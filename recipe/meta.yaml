@@ -43,7 +43,6 @@ requirements:
     - orjson
     - pandas
     - pillow
-    - pycryptodome
     - pydantic
     - pydub
     - python-multipart
