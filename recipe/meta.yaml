@@ -10,7 +10,7 @@ source:
   sha256: b8e830bf669f6015761b3d133b63288f38914cb052fabbcba34dbb7bae9346ff
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - gradio=gradio.reload:run_in_reload_mode
@@ -47,6 +47,7 @@ requirements:
     - pydub
     - python-multipart
     - pyyaml
+    - semantic_version
     - requests
     - typing-extensions
     - uvicorn
