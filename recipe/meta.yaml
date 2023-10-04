@@ -39,9 +39,9 @@ requirements:
     - linkify-it-py
     - mdit-py-plugins <=0.3.3
     - markupsafe ~=2.0
-    - matplotlib ~=3.0
+    - matplotlib-base ~=3.0
     - numpy ~=1.0
-    - orjson n~=3.0
+    - orjson ~=3.0
     - packaging
     - pandas >=1.0,<3.0
     - pillow >=8.0,<11.0
