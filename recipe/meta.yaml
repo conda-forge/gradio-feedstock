@@ -10,7 +10,7 @@ source:
   sha256: 9e64821030ab27c0177a0e2b299e5733fd9a21c06d0793dc156c4e08d91b769c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - gradio=gradio.reload:run_in_reload_mode
@@ -51,7 +51,6 @@ requirements:
     - typing-extensions ~=4.0
     - typer[all] >=0.9,<1.0
     - uvicorn >=0.14.0
-    - websockets >=10.0,<12.0
 
 test:
   imports:
