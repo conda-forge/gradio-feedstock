@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "4.13.0" %}
+{% set version = "4.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: 3ebc5f4b2d7126b42d1f36b937c44703e94991b40cb8f20338227a826048d349
+  sha256: e52a3d54cb340473fea8681cd52a169faf45cd854a2da1f9dc52187868e2a74e
 
 build:
   entry_points:
@@ -15,7 +15,7 @@ build:
     - upload_theme = gradio.themes.upload_theme:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
