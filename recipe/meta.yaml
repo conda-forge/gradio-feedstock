@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "4.14.0" %}
+{% set version = "4.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: e52a3d54cb340473fea8681cd52a169faf45cd854a2da1f9dc52187868e2a74e
+  sha256: f471479591c8ac31a0689ff6a7e3109475744e6d611bb3e727728e472109efb8
 
 build:
   entry_points:
@@ -30,7 +30,7 @@ requirements:
     - altair <6.0,>=4.2.0
     - fastapi
     - ffmpy
-    - gradio-client ==0.8.0
+    - gradio-client ==0.8.1
     - httpx
     - huggingface_hub >=0.19.3
     - importlib-resources <7.0,>=1.3
@@ -46,6 +46,7 @@ requirements:
     - pydub
     - python-multipart
     - pyyaml <7.0,>=5.0
+    - ruff >=0.1.7
     - semantic_version >=2.0,<3.dev0
     - tomlkit ==0.12.0
     - typer <1.0,>=0.9
