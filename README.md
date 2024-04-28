@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gradio-feedstoc
 
 Home: https://pypi.org/project/gradio/
 
-Package license: MIT AND Apache-2.0
+Package license: Apache-2.0
 
 Summary: Python library for easily interacting with trained machine learning models
 
