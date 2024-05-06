@@ -30,7 +30,7 @@ requirements:
     - altair <6.0,>=4.2.0
     - fastapi
     - ffmpy
-    - gradio-client ==0.16.0
+    - gradio-client ==0.16.1
     - httpx >=0.24.1
     - huggingface_hub >=0.19.3
     - importlib-resources <7.0,>=1.3
