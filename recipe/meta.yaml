@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "4.33.0" %}
+{% set version = "4.36.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: ccf0535001e93ef354cdbfb632d76a12f200454e9fd6bf4fa593944d74016562
+  sha256: 81c1f047d7a2a2ee8728123869bd3afb90ad39adceb5f76f07fb0f2f7e5db76c
 
 build:
   entry_points:
