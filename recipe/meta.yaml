@@ -31,7 +31,7 @@ requirements:
     - audioop-lts <1.0
     - fastapi >=0.115.2,<1.0
     - ffmpy
-    - gradio_client ==1.4.2
+    - gradio-client ==1.4.2
     - httpx >=0.24.1
     - huggingface_hub >=0.25.1
     - jinja2 <4.0
