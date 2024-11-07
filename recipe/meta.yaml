@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "5.1.0" %}
+{% set version = "5.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: d2153668e6de2df7a01bb33f01a074fc7716ec863c40f472d8e439439ef1e153
+  sha256: 48ea11ae1376d9506eb295dbeb4d3ff962830a6e2d8aa9085e025cce3c04e544
 
 build:
   entry_points:
@@ -28,25 +28,27 @@ requirements:
     - python >=3.8
     - aiofiles >=22.0,<24.0
     - anyio >=3.0,<5.0
-    - fastapi
+    - audioop-lts <1.0
+    - fastapi >=0.115.2,<1.0
     - ffmpy
-    - gradio-client ==1.4.0
+    - gradio_client ==1.4.2
     - httpx >=0.24.1
     - huggingface_hub >=0.25.1
     - jinja2 <4.0
     - markupsafe ~=2.0
-    - matplotlib-base >=3.0,<4.dev0
     - numpy >=1.0,<3.0
     - orjson ~=3.0
     - packaging
     - pandas >=1.0,<3.0
-    - pillow >=8.0,<11.0
+    - pillow >=8.0,<12.0
     - pydantic >=2.0
+    - python-multipart ==0.0.12
     - pydub
-    - python-multipart >=0.0.9
     - pyyaml >=5.0,<7.0
     - ruff >=0.2.2
+    - safehttpx >=0.1.1,<1.0
     - semantic_version ~=2.0
+    - starlette >=0.40.0,<1.0
     - tomlkit ==0.12.0
     - typer >=0.12,<1.0
     - typing-extensions ~=4.0
