@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
   sha256: 48ea11ae1376d9506eb295dbeb4d3ff962830a6e2d8aa9085e025cce3c04e544
 
 build:
@@ -19,16 +19,16 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - aiofiles >=22.0,<24.0
     - anyio >=3.0,<5.0
-    - audioop-lts <1.0  # [py>=313]
+    - audioop-lts <1.0
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - gradio-client ==1.4.2
@@ -63,6 +63,7 @@ test:
     - gradio --help
     - upload_theme --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
