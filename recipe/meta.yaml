@@ -1,13 +1,15 @@
 {% set name = "gradio" %}
-{% set version = "5.1.0" %}
+{% set version = "5.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: d2153668e6de2df7a01bb33f01a074fc7716ec863c40f472d8e439439ef1e153
+  #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz currently not avalaible
+  sha256: f4cf4bf06b1e73ed0290df646e3c4b2e47812f794e7b85c69e21b725f2ccb5c0
+  url: https://github.com/gradio-app/gradio/archive/gradio@{{ version }}.tar.gz
+  
 
 build:
   entry_points:
@@ -19,34 +21,36 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}, <3.13
     - aiofiles >=22.0,<24.0
     - anyio >=3.0,<5.0
-    - fastapi
+    #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
+    - fastapi >=0.115.2,<1.0
     - ffmpy
-    - gradio-client ==1.4.0
+    - gradio-client ==1.4.2
     - httpx >=0.24.1
     - huggingface_hub >=0.25.1
     - jinja2 <4.0
     - markupsafe ~=2.0
-    - matplotlib-base >=3.0,<4.dev0
     - numpy >=1.0,<3.0
     - orjson ~=3.0
     - packaging
     - pandas >=1.0,<3.0
-    - pillow >=8.0,<11.0
+    - pillow >=8.0,<12.0
     - pydantic >=2.0
+    - python-multipart ==0.0.12
     - pydub
-    - python-multipart >=0.0.9
     - pyyaml >=5.0,<7.0
     - ruff >=0.2.2
+    - safehttpx >=0.1.1,<1.0
     - semantic_version ~=2.0
+    - starlette >=0.40.0,<1.0
     - tomlkit ==0.12.0
     - typer >=0.12,<1.0
     - typing-extensions ~=4.0
@@ -61,10 +65,12 @@ test:
     - gradio --help
     - upload_theme --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
   home: https://pypi.org/project/gradio/
+  dev_url: https://github.com/gradio-app/gradio
   summary: Python library for easily interacting with trained machine learning models
   license: Apache-2.0
   license_file:
