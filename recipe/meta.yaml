@@ -6,8 +6,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz
-  sha256: 48ea11ae1376d9506eb295dbeb4d3ff962830a6e2d8aa9085e025cce3c04e544
+  #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz currently not avalaible
+  sha256: f4cf4bf06b1e73ed0290df646e3c4b2e47812f794e7b85c69e21b725f2ccb5c0
+  url: https://github.com/gradio-app/gradio/archive/gradio@{{ version }}.tar.gz
+  
 
 build:
   entry_points:
@@ -68,6 +70,7 @@ test:
 
 about:
   home: https://pypi.org/project/gradio/
+  dev_url: https://github.com/gradio-app/gradio
   summary: Python library for easily interacting with trained machine learning models
   license: Apache-2.0
   license_file:
