@@ -9,6 +9,8 @@ Package license: Apache-2.0
 
 Summary: Python library for easily interacting with trained machine learning models
 
+Development: https://github.com/gradio-app/gradio
+
 Current build status
 ====================
 
