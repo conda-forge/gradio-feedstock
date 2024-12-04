@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "5.5.0" %}
+{% set version = "5.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz currently not avalaible
-  sha256: f4cf4bf06b1e73ed0290df646e3c4b2e47812f794e7b85c69e21b725f2ccb5c0
+  sha256: b2d0d008a98daee660143eace52482a188effc90a872ccd1b32cc745a956769b
   url: https://github.com/gradio-app/gradio/archive/gradio@{{ version }}.tar.gz
   
 
@@ -33,7 +33,7 @@ requirements:
     #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
     - fastapi >=0.115.2,<1.0
     - ffmpy
-    - gradio-client ==1.4.2
+    - gradio-client ==1.5.0
     - httpx >=0.24.1
     - huggingface_hub >=0.25.1
     - jinja2 <4.0
@@ -48,7 +48,7 @@ requirements:
     - pydub
     - pyyaml >=5.0,<7.0
     - ruff >=0.2.2
-    - safehttpx >=0.1.1,<1.0
+    - safehttpx >=0.1.6,<0.2.0
     - semantic_version ~=2.0
     - starlette >=0.40.0,<1.0
     - tomlkit ==0.12.0
