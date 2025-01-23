@@ -146,4 +146,5 @@ Feedstock Maintainers
 =====================
 
 * [@Sclare87](https://github.com/Sclare87/)
+* [@xhiroga](https://github.com/xhiroga/)
 
