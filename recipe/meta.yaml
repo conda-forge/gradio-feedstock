@@ -33,7 +33,7 @@ requirements:
     #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
     - fastapi >=0.115.2,<1.0
     - ffmpy
-    - gradio-client ==1.6.0
+    - gradio-client ==1.7.0
     - httpx >=0.24.1
     - huggingface_hub >=0.25.1
     - jinja2 <4.0
@@ -47,7 +47,7 @@ requirements:
     - python-multipart >=0.0.18
     - pydub
     - pyyaml >=5.0,<7.0
-    - ruff >=0.2.2
+    - ruff >=0.9.3
     - safehttpx >=0.1.6,<0.2.0
     - semantic_version ~=2.0
     - starlette >=0.40.0,<1.0
