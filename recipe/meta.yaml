@@ -1,12 +1,12 @@
 {% set name = "gradio" %}
-{% set version = "gradio@5.17.0" %}
+{% set version = "5.17.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/gradio-app/gradio/archive/{{ version }}.tar.gz
+  url: https://github.com/gradio-app/gradio/archive/{{ name }}@{{ version }}.tar.gz
   sha256: b49b35c770e34d95e04d394e95ba8413d76c6706e13557e3b18be1720326a86d
 
 build:
