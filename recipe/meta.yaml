@@ -1,15 +1,13 @@
 {% set name = "gradio" %}
-{% set version = "5.16.1" %}
+{% set version = "gradio@5.17.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz currently not avalaible
-  sha256: 52848de66cb1d2e6b00516b75b8b63ae633c47bcc0db8a7f9c01d43b20cdec6a
-  url: https://github.com/gradio-app/gradio/archive/gradio@{{ version }}.tar.gz
-
+  url: https://github.com/gradio-app/gradio/archive/{{ version }}.tar.gz
+  sha256: b49b35c770e34d95e04d394e95ba8413d76c6706e13557e3b18be1720326a86d
 
 build:
   entry_points:
@@ -27,35 +25,7 @@ requirements:
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
   run:
-    - python >={{ python_min }}, <3.13
-    - aiofiles >=22.0,<24.0
-    - anyio >=3.0,<5.0
-    #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
-    - fastapi >=0.115.2,<1.0
-    - ffmpy
-    - gradio-client ==1.7.0
-    - httpx >=0.24.1
-    - huggingface_hub >=0.25.1
-    - jinja2 <4.0
-    - markupsafe ~=2.0
-    - numpy >=1.0,<3.0
-    - orjson ~=3.0
-    - packaging
-    - pandas >=1.0,<3.0
-    - pillow >=8.0,<12.0
-    - pydantic >=2.0
-    - python-multipart >=0.0.18
-    - pydub
-    - pyyaml >=5.0,<7.0
-    - ruff >=0.9.3
-    - safehttpx >=0.1.6,<0.2.0
-    - semantic_version ~=2.0
-    - starlette >=0.40.0,<1.0
-    - tomlkit >=0.12.0,<0.14.0
-    - typer >=0.12,<1.0
-    - typing-extensions ~=4.0
-    - urllib3 ~=2.0
-    - uvicorn >=0.14.0
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -65,16 +35,12 @@ test:
     - gradio --help
     - upload_theme --help
   requires:
-    - python {{ python_min }}
     - pip
 
 about:
-  home: https://pypi.org/project/gradio/
-  dev_url: https://github.com/gradio-app/gradio
   summary: Python library for easily interacting with trained machine learning models
   license: Apache-2.0
-  license_file:
-    - LICENSE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
