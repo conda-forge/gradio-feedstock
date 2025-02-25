@@ -146,7 +146,5 @@ Feedstock Maintainers
 =====================
 
 * [@Sclare87](https://github.com/Sclare87/)
-
-
-<!-- dummy commit to enable rerendering -->
+* [@abidlabs](https://github.com/abidlabs/)
 
