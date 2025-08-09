@@ -1,5 +1,5 @@
 {% set name = "gradio" %}
-{% set version = "5.41.1" %}
+{% set version = "5.42.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio-{{ version }}.tar.gz currently not avalaible
-  sha256: 50d9e28398ce1073c5d7e60009ff73310f6c9f3275d415450d7e5e66730c6ae0
+  sha256: 25a66744fc01c98bec41a1e2aaf7dd1a1f05683684a3edf98a9603648622f3eb
   url: https://github.com/gradio-app/gradio/archive/gradio@{{ version }}.tar.gz
 
 
@@ -34,7 +34,7 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==1.11.0
+    - gradio-client ==1.11.1
     - httpx >=0.24.1
     - huggingface_hub >=0.28.1
     - jinja2 <4.0
