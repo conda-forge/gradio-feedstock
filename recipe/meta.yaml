@@ -34,7 +34,7 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==1.11.1
+    - gradio-client ==1.12.1
     - httpx >=0.24.1
     - huggingface_hub >=0.28.1
     - jinja2 <4.0
