@@ -16,7 +16,7 @@ build:
     - gradio = gradio.cli:cli
     - upload_theme = gradio.themes.upload_theme:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: build.sh
   number: 0
 
 requirements:
