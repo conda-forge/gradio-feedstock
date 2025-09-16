@@ -28,6 +28,7 @@ requirements:
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
+    - gradio-client ==1.13.0
   run:
     - python >={{ python_min }},<3.13
     - aiofiles >=22.0,<25.0
