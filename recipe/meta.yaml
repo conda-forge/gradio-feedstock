@@ -29,7 +29,6 @@ requirements:
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
     # copied from below
-    - python >={{ python_min }},<3.13
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
     #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
