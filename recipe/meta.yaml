@@ -21,6 +21,8 @@ build:
 requirements:
   host:
     - python {{ python_min }}
+    - nodejs >=14
+    - pnpm
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
