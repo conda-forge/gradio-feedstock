@@ -16,20 +16,19 @@ build:
     - gradio = gradio.cli:cli
     - upload_theme = gradio.themes.upload_theme:main
   noarch: python
-  number: 1
+  number: 2
 
 requirements:
   build:
     - nodejs >=14
     - pnpm =9
   host:
-    - python >={{ python_min }},<3.13
+    - python {{ python_min }}
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
     # copied from below
-    - python >={{ python_min }},<3.13
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
     #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
