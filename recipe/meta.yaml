@@ -17,7 +17,7 @@ build:
     - upload_theme = gradio.themes.upload_theme:main
   noarch: python
   script: build.sh
-  number: 0
+  number: 1
 
 requirements:
   host:
