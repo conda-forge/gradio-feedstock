@@ -20,8 +20,8 @@ build:
 
 requirements:
   build:
-    - nodejs >=14
-    - pnpm =9
+    - nodejs >=24
+    - pnpm >=10
   host:
     - python {{ python_min }}
     - hatchling
