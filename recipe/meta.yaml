@@ -36,6 +36,7 @@ requirements:
     - ffmpy
     - groovy-python >=0.1,<0.2
     - gradio-client ==2.3.0
+    - hf-gradio >=0.3.0,<1.0
     - httpx >=0.24.1
     - huggingface_hub >=0.28.1
     - jinja2 <4.0
@@ -68,6 +69,7 @@ requirements:
     - ffmpy
     - groovy-python >=0.1,<0.2
     - gradio-client ==2.3.0
+    - hf-gradio >=0.3.0,<1.0
     - httpx >=0.24.1
     - huggingface_hub >=0.28.1
     - jinja2 <4.0
