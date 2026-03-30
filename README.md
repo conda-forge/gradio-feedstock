@@ -146,5 +146,6 @@ Feedstock Maintainers
 
 * [@Sclare87](https://github.com/Sclare87/)
 * [@abidlabs](https://github.com/abidlabs/)
+* [@freddyaboulton](https://github.com/freddyaboulton/)
 * [@jeongseok-meta](https://github.com/jeongseok-meta/)
 
