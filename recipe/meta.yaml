@@ -16,7 +16,7 @@ build:
     - gradio = gradio.cli:cli
     - upload_theme = gradio.themes.upload_theme:main
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -31,7 +31,7 @@ requirements:
     # copied from below
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
-    #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
+    - audioop-lts <=0.2.2
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
@@ -49,6 +49,7 @@ requirements:
     - pydantic >=2.11.10,<=2.12.5
     - python-multipart >=0.0.18
     - pydub
+    - pytz >=2017.2
     - pyyaml >=5.0,<7.0
     - ruff >=0.9.3
     - safehttpx >=0.1.6,<0.2.0
@@ -61,10 +62,12 @@ requirements:
     - uvicorn >=0.14.0
 
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }}
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
-    #- audioop-lts <1.0 Not yet avalaible yet and only work with python 313
+    # Upstream needs audioop-lts on Python >=3.13 after stdlib audioop was removed.
+    # Keep it unconditional because noarch conda metadata cannot express Python-version markers.
+    - audioop-lts <=0.2.2
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
@@ -82,6 +85,7 @@ requirements:
     - pydantic >=2.11.10,<=2.12.5
     - python-multipart >=0.0.18
     - pydub
+    - pytz >=2017.2
     - pyyaml >=5.0,<7.0
     - ruff >=0.9.3
     - safehttpx >=0.1.6,<0.2.0
@@ -100,6 +104,17 @@ test:
     - pip check
     - gradio --help
     - upload_theme --help
+    # Regression coverage for conda-forge/gradio-feedstock#129.
+    - |
+      python - <<'PY'
+      import sys
+
+      assert sys.version_info[:2] == (3, 13), sys.version
+
+      import audioop
+
+      assert audioop.lin2lin(b"\0\0", 2, 1) == b"\0"
+      PY
     # Regression coverage for conda-forge/gradio-feedstock#103.
     - |
       python - <<'PY'
@@ -132,7 +147,8 @@ test:
       assert "def load(self," in contents
       PY
   requires:
-    - python {{ python_min }}
+    # Run noarch tests on Python 3.13 to cover the audioop-lts regression.
+    - python 3.13.*
     - pip
 
 about:
