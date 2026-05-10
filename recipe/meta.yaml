@@ -100,6 +100,37 @@ test:
     - pip check
     - gradio --help
     - upload_theme --help
+    # Regression coverage for conda-forge/gradio-feedstock#103.
+    - |
+      python - <<'PY'
+      import json
+      import os
+      from pathlib import Path
+
+      prefix = Path(os.environ["PREFIX"])
+      records = list()
+      for record_path in sorted((prefix / "conda-meta").glob("gradio*.json")):
+          record = json.loads(record_path.read_text(encoding="utf-8"))
+          if record.get("name") == "gradio":
+              records.append((record_path, record))
+
+      assert len(records) == 1, "found gradio package records: %r" % (records,)
+
+      record_path, record = next(iter(records))
+      packaged_file = "gradio/blocks_events.pyi"
+      assert any(path.endswith(packaged_file) for path in record.get("files", ())), (
+          f"{packaged_file} is missing from package metadata {record_path}"
+      )
+
+      import gradio
+
+      blocks_events = Path(gradio.__file__).with_name("blocks_events.pyi")
+      assert blocks_events.is_file(), f"{blocks_events} is missing"
+
+      contents = blocks_events.read_text(encoding="utf-8")
+      assert "class BlocksEvents" in contents
+      assert "def load(self," in contents
+      PY
   requires:
     - python {{ python_min }}
     - pip
