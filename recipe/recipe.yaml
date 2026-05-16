@@ -1,0 +1,174 @@
+schema_version: 1
+
+context:
+  name: gradio
+  version: "6.14.0"
+  python_min: "3.10"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  # PyPI sdist is currently not available for this release.
+  url: https://github.com/gradio-app/gradio/archive/gradio@${{ version }}.tar.gz
+  sha256: c5f413b39ef590d617c104feaa8c85d584c9d513a71a990639735e12d5171cd4
+
+build:
+  noarch: python
+  number: 2
+  script: bash "${RECIPE_DIR}/build.sh"
+  python:
+    entry_points:
+      - gradio = gradio.cli:cli
+      - upload_theme = gradio.themes.upload_theme:main
+
+requirements:
+  build:
+    - nodejs >=24
+    - pnpm >=10
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - hatch-requirements-txt
+    - hatch-fancy-pypi-readme >=22.5.0
+    - pip
+    # Copied from run because the frontend build imports the installed package.
+    - aiofiles >=22.0,<25.0
+    - anyio >=3.0,<5.0
+    - audioop-lts <=0.2.2
+    - fastapi >=0.115.2,<1.0
+    - ffmpy
+    - groovy-python >=0.1,<0.2
+    - gradio-client ==2.5.0
+    - hf-gradio >=0.3.0,<1.0
+    - httpx >=0.24.1
+    - huggingface_hub >=0.28.1
+    - jinja2 <4.0
+    - markupsafe >=2.0,<4.0
+    - numpy >=1.0,<3.0
+    - orjson >=3.0,<4.0
+    - packaging
+    - pandas >=1.0,<4.0
+    - pillow >=8.0,<12.0
+    - pydantic >=2.11.10,<=2.12.5
+    - python-multipart >=0.0.18
+    - pydub
+    - pytz >=2017.2
+    - pyyaml >=5.0,<7.0
+    - ruff >=0.9.3
+    - safehttpx >=0.1.6,<0.2.0
+    - semantic_version >=2.0,<3.0
+    - starlette >=0.40.0,<1.0
+    - tomlkit >=0.12.0,<0.14.0
+    - typer >=0.12,<1.0
+    - typing-extensions ~=4.0
+    - urllib3 ~=2.0
+    - uvicorn >=0.14.0
+  run:
+    - python >=${{ python_min }}
+    - aiofiles >=22.0,<25.0
+    - anyio >=3.0,<5.0
+    # Upstream needs audioop-lts on Python >=3.13 after stdlib audioop was removed.
+    # Keep it unconditional because noarch conda metadata cannot express Python-version markers.
+    - audioop-lts <=0.2.2
+    - fastapi >=0.115.2,<1.0
+    - ffmpy
+    - groovy-python >=0.1,<0.2
+    - gradio-client ==2.5.0
+    - hf-gradio >=0.3.0,<1.0
+    - httpx >=0.24.1
+    - huggingface_hub >=0.28.1
+    - jinja2 <4.0
+    - markupsafe >=2.0,<4.0
+    - numpy >=1.0,<3.0
+    - orjson >=3.0,<4.0
+    - packaging
+    - pandas >=1.0,<4.0
+    - pillow >=8.0,<12.0
+    - pydantic >=2.11.10,<=2.12.5
+    - python-multipart >=0.0.18
+    - pydub
+    - pytz >=2017.2
+    - pyyaml >=5.0,<7.0
+    - ruff >=0.9.3
+    - safehttpx >=0.1.6,<0.2.0
+    - semantic_version >=2.0,<3.0
+    - starlette >=0.40.0,<1.0
+    - tomlkit >=0.12.0,<0.14.0
+    - typer >=0.12,<1.0
+    - typing-extensions ~=4.0
+    - urllib3 ~=2.0
+    - uvicorn >=0.14.0
+
+tests:
+  - python:
+      imports:
+        - gradio
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        # Run noarch tests on Python 3.13 to cover the audioop-lts regression.
+        - python 3.13.*
+    script:
+      - gradio --help
+      - upload_theme --help
+      # Regression coverage for conda-forge/gradio-feedstock#129.
+      - |
+        python - <<'PY'
+        import sys
+
+        assert sys.version_info[:2] == (3, 13), sys.version
+
+        import audioop
+
+        assert audioop.lin2lin(b"\0\0", 2, 1) == b"\0"
+        PY
+      # Regression coverage for conda-forge/gradio-feedstock#103.
+      - |
+        python - <<'PY'
+        import json
+        import os
+        from pathlib import Path
+
+        prefix = Path(os.environ["PREFIX"])
+        records = list()
+        for record_path in sorted((prefix / "conda-meta").glob("gradio*.json")):
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            if record.get("name") == "gradio":
+                records.append((record_path, record))
+
+        assert len(records) == 1, "found gradio package records: %r" % (records,)
+
+        record_path, record = next(iter(records))
+        packaged_file = "gradio/blocks_events.pyi"
+        assert any(path.endswith(packaged_file) for path in record.get("files", ())), (
+            f"{packaged_file} is missing from package metadata {record_path}"
+        )
+
+        import gradio
+
+        blocks_events = Path(gradio.__file__).with_name("blocks_events.pyi")
+        assert blocks_events.is_file(), f"{blocks_events} is missing"
+
+        contents = blocks_events.read_text(encoding="utf-8")
+        assert "class BlocksEvents" in contents
+        assert "def load(self," in contents
+        PY
+
+about:
+  homepage: https://pypi.org/project/gradio/
+  repository: https://github.com/gradio-app/gradio
+  summary: Python library for easily interacting with trained machine learning models
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+
+extra:
+  recipe-maintainers:
+    - freddyaboulton
+    - jeongseok-meta
+    - abidlabs
+    - Sclare87
