@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: gradio
-  version: "6.15.1"
+  version: "6.15.2"
   python_min: "3.10"
 
 package:
@@ -12,7 +12,7 @@ package:
 source:
   # PyPI sdist is currently not available for this release.
   url: https://github.com/gradio-app/gradio/archive/gradio@${{ version }}.tar.gz
-  sha256: b006c71561107442ba0c644fc30ade89fa61d7bfceaa08d99019c192e9a25b10
+  sha256: bfa189ffed602696f8c5b881493c6a942cbe7610021e5dd3be0735937b227f7f
 
 build:
   noarch: python
@@ -37,30 +37,31 @@ requirements:
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
     - audioop-lts <=0.2.2
+    - brotli-python >=1.1.0
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
     - gradio-client ==2.5.0
-    - hf-gradio >=0.3.0,<1.0
-    - httpx >=0.24.1
-    - huggingface_hub >=0.28.1
+    - hf-gradio >=0.4.1,<1.0
+    - httpx >=0.24.1,<1.0
+    - huggingface_hub >=0.33.5,<2.0
     - jinja2 <4.0
     - markupsafe >=2.0,<4.0
     - numpy >=1.0,<3.0
     - orjson >=3.0,<4.0
     - packaging
     - pandas >=1.0,<4.0
-    - pillow >=8.0,<12.0
-    - pydantic >=2.11.10,<=2.12.5
-    - python-multipart >=0.0.18
-    - pydub
+    - pillow >=8.0,<13.0
+    - pydantic >=2.0,<=3.0
+    - python-multipart >=0.0.18,<1.0
+    - pydub <1.0
     - pytz >=2017.2
     - pyyaml >=5.0,<7.0
     - ruff >=0.9.3
-    - safehttpx >=0.1.6,<0.2.0
+    - safehttpx >=0.1.7,<0.2.0
     - semantic_version >=2.0,<3.0
-    - starlette >=0.40.0,<1.0
-    - tomlkit >=0.12.0,<0.14.0
+    - starlette >=1.0.1,<2.0
+    - tomlkit >=0.12.0,<0.15.0
     - typer >=0.12,<1.0
     - typing-extensions ~=4.0
     - urllib3 ~=2.0
@@ -72,30 +73,31 @@ requirements:
     # Upstream needs audioop-lts on Python >=3.13 after stdlib audioop was removed.
     # Keep it unconditional because noarch conda metadata cannot express Python-version markers.
     - audioop-lts <=0.2.2
+    - brotli-python >=1.1.0
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
     - gradio-client ==2.5.0
-    - hf-gradio >=0.3.0,<1.0
-    - httpx >=0.24.1
-    - huggingface_hub >=0.28.1
+    - hf-gradio >=0.4.1,<1.0
+    - httpx >=0.24.1,<1.0
+    - huggingface_hub >=0.33.5,<2.0
     - jinja2 <4.0
     - markupsafe >=2.0,<4.0
     - numpy >=1.0,<3.0
     - orjson >=3.0,<4.0
     - packaging
     - pandas >=1.0,<4.0
-    - pillow >=8.0,<12.0
-    - pydantic >=2.11.10,<=2.12.5
-    - python-multipart >=0.0.18
-    - pydub
+    - pillow >=8.0,<13.0
+    - pydantic >=2.0,<=3.0
+    - python-multipart >=0.0.18,<1.0
+    - pydub <1.0
     - pytz >=2017.2
     - pyyaml >=5.0,<7.0
     - ruff >=0.9.3
-    - safehttpx >=0.1.6,<0.2.0
+    - safehttpx >=0.1.7,<0.2.0
     - semantic_version >=2.0,<3.0
-    - starlette >=0.40.0,<1.0
-    - tomlkit >=0.12.0,<0.14.0
+    - starlette >=1.0.1,<2.0
+    - tomlkit >=0.12.0,<0.15.0
     - typer >=0.12,<1.0
     - typing-extensions ~=4.0
     - urllib3 ~=2.0
