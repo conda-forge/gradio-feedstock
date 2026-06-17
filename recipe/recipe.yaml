@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: gradio
-  version: "6.18.0"
+  version: "6.19.0"
   python_min: "3.10"
 
 package:
@@ -12,7 +12,7 @@ package:
 source:
   # PyPI sdist is currently not available for this release.
   url: https://github.com/gradio-app/gradio/archive/gradio@${{ version }}.tar.gz
-  sha256: c900f19d5e947bc9717a99c55db7f65228472ae3ba1eaa9e15d3d1072457214e
+  sha256: c6282a22621ee6e65062e174b0c4c5b7e322999ca313a64d424cce098be7e98b
 
 build:
   noarch: python
