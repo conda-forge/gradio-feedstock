@@ -3,7 +3,6 @@ schema_version: 1
 context:
   name: gradio
   version: "6.26.0"
-  python_min: "3.10"
 
 package:
   name: ${{ name|lower }}
@@ -41,10 +40,10 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==2.6.0
+    - gradio-client ==2.6.1
     - hf-gradio >=0.4.1,<1.0
     - httpx >=0.24.1,<1.0
-    - huggingface_hub >=0.33.5,<2.0
+    - huggingface_hub >=1.16.0,<2.0
     - jinja2 <4.0
     - markupsafe >=2.0,<4.0
     - numpy >=1.0,<3.0
@@ -77,10 +76,10 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==2.6.0
+    - gradio-client ==2.6.1
     - hf-gradio >=0.4.1,<1.0
     - httpx >=0.24.1,<1.0
-    - huggingface_hub >=0.33.5,<2.0
+    - huggingface_hub >=1.16.0,<2.0
     - jinja2 <4.0
     - markupsafe >=2.0,<4.0
     - numpy >=1.0,<3.0
@@ -108,7 +107,9 @@ tests:
       imports:
         - gradio
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - pip
