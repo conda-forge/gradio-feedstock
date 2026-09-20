@@ -170,6 +170,7 @@ about:
     - LICENSE
 
 extra:
+  feedstock-name: gradio
   recipe-maintainers:
     - freddyaboulton
     - jeongseok-meta
