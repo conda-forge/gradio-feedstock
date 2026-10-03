@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: gradio
-  version: "6.29.0"
+  version: "6.29.1"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 source:
   # PyPI sdist is currently not available for this release.
   url: https://github.com/gradio-app/gradio/archive/gradio@${{ version }}.tar.gz
-  sha256: 612622d1b8f39ab6a004a1a0032c11587f73d8accf84f12e80da231c95c7e232
+  sha256: 20803b7c1f6bd291c1ae6f51fccf620a098c5907bf0075a500a0ae89c51193ed
 
 build:
   noarch: python
@@ -40,7 +40,7 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==2.7.1
+    - gradio-client ==2.7.2
     - hf-gradio >=0.4.1,<1.0
     - httpx >=0.24.1,<1.0
     - huggingface_hub >=1.16.0,<2.0
@@ -76,7 +76,7 @@ requirements:
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
-    - gradio-client ==2.7.1
+    - gradio-client ==2.7.2
     - hf-gradio >=0.4.1,<1.0
     - httpx >=0.24.1,<1.0
     - huggingface_hub >=1.16.0,<2.0
