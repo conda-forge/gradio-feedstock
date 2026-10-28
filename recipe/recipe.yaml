@@ -36,7 +36,7 @@ requirements:
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
     - audioop-lts <=0.2.2
-    - brotli-python >=1.1.0
+    - brotli-python >=1.2.1
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
@@ -72,7 +72,7 @@ requirements:
     # Upstream needs audioop-lts on Python >=3.13 after stdlib audioop was removed.
     # Keep it unconditional because noarch conda metadata cannot express Python-version markers.
     - audioop-lts <=0.2.2
-    - brotli-python >=1.1.0
+    - brotli-python >=1.2.1
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
