@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: gradio
-  version: "6.30.0"
+  version: "6.31.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,11 +11,11 @@ package:
 source:
   # PyPI sdist is currently not available for this release.
   url: https://github.com/gradio-app/gradio/archive/gradio@${{ version }}.tar.gz
-  sha256: 3707d9e88535346885f12d99aab8e408dda9f096a6432b966b223b25548ccd19
+  sha256: 6fc3c6d3dd67549c2970a78c6543c0fe1cc2dd2de90875fd0c387585ab82ace3
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: bash "${RECIPE_DIR}/build.sh"
   python:
     entry_points:
@@ -36,7 +36,7 @@ requirements:
     - aiofiles >=22.0,<25.0
     - anyio >=3.0,<5.0
     - audioop-lts <=0.2.2
-    - brotli-python >=1.1.0
+    - brotli-python >=1.2.1
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
@@ -72,7 +72,7 @@ requirements:
     # Upstream needs audioop-lts on Python >=3.13 after stdlib audioop was removed.
     # Keep it unconditional because noarch conda metadata cannot express Python-version markers.
     - audioop-lts <=0.2.2
-    - brotli-python >=1.1.0
+    - brotli-python >=1.2.1
     - fastapi >=0.115.2,<1.0
     - ffmpy
     - groovy-python >=0.1,<0.2
